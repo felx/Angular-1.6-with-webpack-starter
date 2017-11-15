@@ -3,6 +3,7 @@ class HomeCtrl {
     'ngInject';
 
     this.appName = AppConstants.appName;
+    this.html = "<h1 style='color: red'>Hello World</h1>";
   }
 }
 

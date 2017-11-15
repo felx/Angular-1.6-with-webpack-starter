@@ -56,10 +56,16 @@ const requires = [
 
 const MODULE_NAME = 'MyApp';
 
-angular.module(MODULE_NAME, requires)
+const app = angular.module(MODULE_NAME, requires)
   .constant('AppConstants', constants)
   .config(appConfig)
   .run(appRun);
+
+app.filter('rawHtml', ['$sce', function($sce){
+  return function(val) {
+    return $sce.trustAsHtml(val);
+  };
+}]);
 
 angular.bootstrap(document, [MODULE_NAME], {
   //strictDi: true
